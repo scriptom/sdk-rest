@@ -89,6 +89,9 @@ import com.bullhornsdk.data.model.entity.core.customobjectinstances.placement.Pl
 import com.bullhornsdk.data.model.entity.core.customobjectinstances.placement.PlacementCustomObjectInstance7;
 import com.bullhornsdk.data.model.entity.core.customobjectinstances.placement.PlacementCustomObjectInstance8;
 import com.bullhornsdk.data.model.entity.core.customobjectinstances.placement.PlacementCustomObjectInstance9;
+import com.bullhornsdk.data.model.entity.core.onboarding365.forms.FederalTaxForm;
+import com.bullhornsdk.data.model.entity.core.onboarding365.forms.LocalTaxForm;
+import com.bullhornsdk.data.model.entity.core.onboarding365.forms.StateTaxForm;
 import com.bullhornsdk.data.model.entity.core.paybill.BillingProfile;
 import com.bullhornsdk.data.model.entity.core.paybill.CanvasReport;
 import com.bullhornsdk.data.model.entity.core.paybill.Location;
@@ -124,7 +127,6 @@ import com.bullhornsdk.data.model.entity.core.paybill.distribution.*;
 import com.bullhornsdk.data.model.entity.core.standard.*;
 import com.bullhornsdk.data.model.entity.core.type.BullhornEntity;
 import com.bullhornsdk.data.model.entity.embedded.UserType;
-import com.bullhornsdk.data.model.entity.file.*;
 import com.bullhornsdk.data.model.entity.report.Report;
 import com.bullhornsdk.data.model.entity.file.BillableChargeFileAttachment;
 import com.bullhornsdk.data.model.entity.file.CandidateFileAttachment;
@@ -376,6 +378,8 @@ public enum BullhornEntityInfo {
     USER_HOUSING_COMPLEX_UNIT("UserHousingComplexUnit", UserHousingComplexUnit.class, UserHousingComplexUnitWrapper.class, UserHousingComplexUnitListWrapper.class, null, null),
     JOB_ORDER("JobOrder", JobOrder.class, JobOrderWrapper.class, JobOrderListWrapper.class, "JobOrderEditHistory",
         "JobOrderEditHistoryFieldChange"),
+    JOB_SHIFT("JobShift", JobShift.class, JobShiftWrapper.class, JobShiftListWrapper.class, null,
+        null),
     JOB_BOARD_POST("JobBoardPost", JobBoardPost.class, JobBoardPostWrapper.class, JobBoardPostListWrapper.class, null, null),
     JOB_SUBMISSION("JobSubmission", JobSubmission.class, JobSubmissionWrapper.class, JobSubmissionListWrapper.class,
         "JobSubmissionEditHistory", "JobSubmissionEditHistoryFieldChange"),
@@ -389,6 +393,8 @@ public enum BullhornEntityInfo {
     PERSON("Person", Person.class, PersonWrapper.class, PersonListWrapper.class, null, null),
     PLACEMENT("Placement", Placement.class, PlacementWrapper.class, PlacementListWrapper.class, "PlacementEditHistory",
         "PlacementEditHistoryFieldChange"),
+    DOCUMENT_DATA_FLOWBACK("DocumentDataFlowback", DocumentDataFlowback.class, DocumentDataFlowbackWrapper.class, DocumentDataFlowbackListWrapper.class, null,
+        null),
     PLACEMENT_CHANGE_REQUEST("PlacementChangeRequest", PlacementChangeRequest.class, PlacementChangeRequestWrapper.class,
         PlacementChangeRequestListWrapper.class, "PlacementChangeRequestEditHistory", "PlacementChangeRequestEditHistoryFieldChange"),
     PLACEMENT_CERTIFICATION("PlacementCertification", PlacementCertification.class, PlacementCertificationWrapper.class,
@@ -591,7 +597,12 @@ public enum BullhornEntityInfo {
     INVOICE_STATEMENT_EXPORT("InvoiceStatementExport", InvoiceStatementExport.class, InvoiceStatementExportWrapper.class, InvoiceStatementExportListWrapper.class, null, null),
 
     // Specialized Lookup Entities
-    CERTIFICATION_REQUIREMENT_STATUS_LOOKUP("CertificationRequirementStatusLookup", CertificationRequirementStatusLookup.class, CertificationRequirementStatusLookupWrapper.class, CertificationRequirementStatusLookupListWrapper.class, null, null);
+    CERTIFICATION_REQUIREMENT_STATUS_LOOKUP("CertificationRequirementStatusLookup", CertificationRequirementStatusLookup.class, CertificationRequirementStatusLookupWrapper.class, CertificationRequirementStatusLookupListWrapper.class, null, null),
+
+    // Onboarding365 Entities
+    LOCAL_TAX_FORM("LocalTaxForm", LocalTaxForm.class, LocalTaxFormWrapper.class, LocalTaxFormListWrapper.class, null, null),
+    STATE_TAX_FORM("StateTaxForm", StateTaxForm.class, StateTaxFormWrapper.class, StateTaxFormListWrapper.class, null, null),
+    FEDERAL_TAX_FORM("FederalTaxForm", FederalTaxForm.class, FederalTaxFormWrapper.class, FederalTaxFormListWrapper.class, null, null);
 
     private final String name;
 
