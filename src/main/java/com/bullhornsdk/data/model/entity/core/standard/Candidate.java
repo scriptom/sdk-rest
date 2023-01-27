@@ -462,7 +462,9 @@ public class Candidate extends CustomFieldsF implements SearchEntity, UpdateEnti
 
     private OneToMany<PersonCustomObjectInstance29> customObject29s;
 
-	public Candidate() {
+    private OneToMany<PersonCustomObjectInstance30> customObject30s;
+
+    public Candidate() {
 		super();
 	}
 
@@ -2116,6 +2118,18 @@ public class Candidate extends CustomFieldsF implements SearchEntity, UpdateEnti
     @JsonProperty("customObject29s")
     public void setCustomObject29s(OneToMany<PersonCustomObjectInstance29> customObject29s) {
         this.customObject29s = customObject29s;
+    }
+
+    @JsonProperty("customObject30s")
+    @JsonSerialize(using = RestOneToManySerializer.class)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public OneToMany<PersonCustomObjectInstance30> getCustomObject30s() {
+        return customObject30s;
+    }
+
+    @JsonProperty("customObject30s")
+    public void setCustomObject30s(OneToMany<PersonCustomObjectInstance30> customObject30s) {
+        this.customObject30s = customObject30s;
     }
 
     @Override
