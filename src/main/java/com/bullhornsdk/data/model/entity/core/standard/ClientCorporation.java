@@ -37,6 +37,7 @@ import com.bullhornsdk.data.model.entity.core.customobjectinstances.clientcorpor
 import com.bullhornsdk.data.model.entity.core.customobjectinstances.clientcorporation.ClientCorporationCustomObjectInstance7;
 import com.bullhornsdk.data.model.entity.core.customobjectinstances.clientcorporation.ClientCorporationCustomObjectInstance8;
 import com.bullhornsdk.data.model.entity.core.customobjectinstances.clientcorporation.ClientCorporationCustomObjectInstance9;
+import com.bullhornsdk.data.model.entity.core.paybill.BillingProfile;
 import com.bullhornsdk.data.model.entity.core.paybill.Location;
 import com.bullhornsdk.data.model.entity.core.paybill.optionslookup.SimplifiedOptionsLookup;
 import com.bullhornsdk.data.model.entity.core.type.AssociationEntity;
@@ -74,7 +75,7 @@ import java.util.Objects;
 		"ownership", "parentClientCorporation", "phone", "revenue", "status", "taxRate", "tickerSymbol", "trackTitle", "userOwners", "workWeekStart",
         "customObject1s", "customObject2s", "customObject3s", "customObject4s", "customObject5s", "customObject6s", "customObject7s",
         "customObject8s", "customObject9s", "customObject10s", "locations", "twitterHandle","facebookProfileName", "exemptionStatus",
-        "clientContactNotes", "fileAttachments", "owners", "stats", "timeAndLaborEnabledDate"})
+        "clientContactNotes", "fileAttachments", "owners", "stats", "timeAndLaborEnabledDate", "billingProfiles"})
 public class ClientCorporation extends CustomFieldsB implements QueryEntity, UpdateEntity, CreateEntity, FileEntity, AssociationEntity,
 		SearchEntity, DateLastModifiedEntity, EditHistoryEntity {
 
@@ -293,6 +294,8 @@ public class ClientCorporation extends CustomFieldsB implements QueryEntity, Upd
     private ClientCorporationRatios stats;
 
     private DateTime timeAndLaborEnabledDate;
+
+    private OneToMany<BillingProfile> billingProfiles;
 
 	public ClientCorporation() {
 		super();
@@ -1251,6 +1254,17 @@ public class ClientCorporation extends CustomFieldsB implements QueryEntity, Upd
 
     public void setTimeAndLaborEnabledDate(DateTime timeAndLaborEnabledDate) {
         this.timeAndLaborEnabledDate = timeAndLaborEnabledDate;
+    }
+
+    @JsonProperty("billingProfiles")
+    @JsonSerialize(using = RestOneToManySerializer.class)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public OneToMany<BillingProfile> getBillingProfiles() {
+        return billingProfiles;
+    }
+
+    public void setBillingProfiles(OneToMany<BillingProfile> billingProfiles) {
+        this.billingProfiles = billingProfiles;
     }
 
     @Override
